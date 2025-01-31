@@ -1,7 +1,7 @@
 import { PreviewShape } from '../PreviewShape/PreviewShape'
 import {
 	OPENAI_USER_PROMPT,
-	OPENAI_USER_PROMPT_WITH_PREVIOUS_DESIGN,
+	OPENAI_USER_PROMPT_WITH_PREVIOUS_SOLUTION,
 	OPEN_AI_SYSTEM_PROMPT,
 } from '../prompt'
 
@@ -43,7 +43,7 @@ export async function getHtmlFromOpenAI({
 	userContent.push({
 		type: 'text',
 		text:
-			previousPreviews?.length > 0 ? OPENAI_USER_PROMPT_WITH_PREVIOUS_DESIGN : OPENAI_USER_PROMPT,
+			previousPreviews?.length > 0 ? OPENAI_USER_PROMPT_WITH_PREVIOUS_SOLUTION : OPENAI_USER_PROMPT,
 	})
 
 	// Add the image
@@ -92,7 +92,7 @@ export async function getHtmlFromOpenAI({
 	})
 
 	const body: GPT4VCompletionRequest = {
-		model: 'gpt-4-vision-preview',
+		model: 'gpt-4o-mini',
 		max_tokens: 4096,
 		temperature: 0,
 		messages,
@@ -139,7 +139,7 @@ type MessageContent =
 	  )[]
 
 export type GPT4VCompletionRequest = {
-	model: 'gpt-4-vision-preview'
+	model: 'gpt-4o-mini'
 	messages: {
 		role: 'system' | 'user' | 'assistant' | 'function'
 		content: MessageContent
