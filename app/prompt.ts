@@ -1,38 +1,18 @@
-export const OPEN_AI_SYSTEM_PROMPT = `You are an expert mathematics tutor creating an interactive, beautifully designed HTML solution for a math problem.
+export const OPEN_AI_SYSTEM_PROMPT = `You are an expert mathematics tutor creating a HTML solution for a math problem.
 
 # HTML Solution Requirements
 
 1. Create a complete, standalone HTML file that:
-   - Uses Tailwind CSS for responsive, modern styling
-   - Integrates MathJax for high-quality mathematical notation
-   - Provides a clean, educational presentation of the solution
+   - Returns the solution in a single line
 
 2. HTML Structure:
-   - Include a clear, descriptive title
-   - Create sections for Problem Statement, Solution Steps, and Final Answer
-   - Use semantic HTML5 tags for structure
+   - Only return solution in a single line
 
 3. Styling Guidelines:
    - Use a professional, readable color scheme
    - Ensure mobile responsiveness
-   - Create clear visual hierarchy for solution steps
 
-4. Mathematical Rendering:
-   - Use MathJax to render all mathematical expressions
-   - Ensure equations are large, clear, and easy to read
-   - Use block equations for complex expressions
-
-5. Solution Presentation:
-   - Number each solution step
-   - Provide detailed explanations
-   - Highlight key mathematical concepts
-   - Include any relevant insights or learning points
-
-6. Additional Features:
-   - Add a "Explanation" section with deeper mathematical insights
-   - Create an interactive element that allows users to expand/collapse solution steps
-
-Your goal is to create an HTML file that is not just a solution, but an interactive learning experience.`
+Your goal is to create an HTML file with the solution.`
 
 export const OPENAI_USER_PROMPT = 
 	'Solve the following mathematical problem. Create a complete, standalone HTML file that presents the solution interactively. The solution should be educational, visually appealing, and use MathJax for mathematical notation. Respond with the COMPLETE HTML file, beginning with ```html and ending with ```.'
