@@ -1,9 +1,9 @@
-import { Icon, useBreakpoint } from '@tldraw/tldraw'
+import { Icon, useBreakpoint, useEditor } from '@tldraw/tldraw'
 import { ChangeEvent, useCallback } from 'react'
 
 export function RiskyButCoolAPIKeyInput() {
 	const breakpoint = useBreakpoint()
-
+	const editor = useEditor()
 	// Store the API key locally, but ONLY in development mode
 	const handleChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
 		localStorage.setItem('makeitreal_key', e.target.value)
@@ -13,6 +13,12 @@ export function RiskyButCoolAPIKeyInput() {
 		window.alert(
 			`If you have an OpenAI developer key, you can put it in this input and it will be used when posting to OpenAI.\n\nSee https://platform.openai.com/api-keys to get a key.\n\nPutting API keys into boxes is generally a bad idea! If you have any concerns, create an API key and then revoke it after using this site.`
 		)
+	}, [])
+
+	const handleTestClick = useCallback(() => {
+	
+		const shapes = editor.getCurrentPageShapes();
+		console.log(shapes)
 	}, [])
 
 	return (
@@ -32,6 +38,7 @@ export function RiskyButCoolAPIKeyInput() {
 				<button className="question__button" onClick={handleQuestionMessage}>
 					<Icon icon="question" />
 				</button>
+				{/* <button className="test" onClick={handleTestClick}>Get current shapes</button> */}
 			</div>
 		</div>
 	)

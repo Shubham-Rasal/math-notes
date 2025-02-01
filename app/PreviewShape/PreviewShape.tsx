@@ -57,6 +57,7 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
 		const htmlToUse = shape.props.html.replace(
 			`</body>`,
 			`<script src="https://unpkg.com/html2canvas"></script><script>
+			 
 			// send the screenshot to the parent window
   			window.addEventListener('message', function(event) {
     		if (event.data.action === 'take-screenshot' && event.data.shapeid === "${shape.id}") {
@@ -67,7 +68,7 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
     		}
   			}, false);
 			document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
-</body>`
+			</body>`
 		)
 
 		return (
@@ -91,7 +92,7 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
 						style={{
 							width: '100%',
 							height: '100%',
-							backgroundColor: 'var(--color-muted-2)',
+							backgroundColor: 'rgb(245, 238, 140)',
 							display: 'flex',
 							alignItems: 'center',
 							justifyContent: 'center',
@@ -136,6 +137,7 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
 							padding: 4,
 							fontFamily: 'inherit',
 							fontSize: 12,
+							backgroundColor: 'rgb(245, 238, 140)',
 							left: 0,
 							width: '100%',
 							display: 'flex',
@@ -144,16 +146,7 @@ export class PreviewShapeUtil extends BaseBoxShapeUtil<PreviewShape> {
 							pointerEvents: 'none',
 						}}
 					>
-						<span
-							style={{
-								background: 'var(--color-panel)',
-								padding: '4px 12px',
-								borderRadius: 99,
-								border: '1px solid var(--color-muted-1)',
-							}}
-						>
-							{isEditing ? 'Click the canvas to exit' : 'Double click to interact'}
-						</span>
+						
 					</div>
 				)}
 			</HTMLContainer>
